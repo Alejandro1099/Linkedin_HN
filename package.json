@@ -1,0 +1,14 @@
+{
+  "name": "linkedin_hn",
+  "version": "1.0.0",
+  "description": "Proyecto de Analisis y Diseño II PAC 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GRUPO 2",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
