@@ -21,8 +21,10 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
+                                <th>ID_BD</th>
                                 <th>Primer Nombre</th>
                                 <th>Segundo Nombre</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -30,8 +32,13 @@
                                 <% for(var i = 0; i<data.length; i++){%>
                                     <tr>
                                         <td><%= (i + 1) %></td>
+                                        <td><%= data[i].ID_IDENTIDAD %></td>
                                         <td><%= data[i].nombre1 %></td>
                                         <td><%= data[i].nombre2 %></td>
+                                        <td>
+                                            <a href="/delete/<%= data[i].ID_IDENTIDAD %>" class="btn btn-danger ">Eliminar</a>
+                                            <a href="/update/<%= data[i].ID_IDENTIDAD %>" class="btn btn-warning">Actualizar</a>
+                                        </td>
                                     </tr>
                                 <% } %>
                             <% } %>
