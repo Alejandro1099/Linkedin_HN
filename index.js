@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
     res.send("servidor de Linkedin HN escuchando Buen dia");
 })
 
-app.listen(3000, () => {
+app.listen(3002, () => {
     console.log('Servidor iniciado en el puerto 3000');
 });
 
