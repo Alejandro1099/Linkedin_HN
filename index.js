@@ -37,9 +37,19 @@ app.get('/home', (req, res) =>{
     res.render('inicio');
 });
 
-//envia a agregar empresa
+//envia a agregar persona
 app.get('/persona', (req, res) =>{
     res.render('persona');
+});
+
+
+//envia a agregar empresa
+app.get('/agregaEmpresa', (req, res) =>{
+    res.render('persona');
+});
+
+app.get('/oferta', (req, res) =>{
+    res.render('ofertaTrabajo');
 });
 
 
