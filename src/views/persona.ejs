@@ -15,37 +15,6 @@
     <%- include("partials/_header") %> <!-- include(carpeta/nombreArchivo) -->
         <!-- form -->
         <div class="container">
-            <div class="row mt-5">
-                <div class="col-md-7">
-                    <table class="table table-bordered table-hover">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>ID_BD</th>
-                                <th>Primer Nombre</th>
-                                <th>Segundo Nombre</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% if (data){ %>
-                                <% for(var i = 0; i<data.length; i++){%>
-                                    <tr>
-                                        <td><%= (i + 1) %></td>
-                                        <td><%= data[i].ID_IDENTIDAD %></td>
-                                        <td><%= data[i].nombre1 %></td>
-                                        <td><%= data[i].nombre2 %></td>
-                                        <td>
-                                            <a href="/delete/<%= data[i].ID_IDENTIDAD %>" class="btn btn-danger ">Eliminar</a>
-                                            <a href="/update/<%= data[i].ID_IDENTIDAD %>" class="btn btn-warning">Actualizar</a>
-                                        </td>
-                                    </tr>
-                                <% } %>
-                            <% } %>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
             <form action="/add" method="post">
                 <div class="row mt-3">
                     <div class="col-md-8">

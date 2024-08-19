@@ -45,7 +45,7 @@ app.get('/persona', (req, res) =>{
 
 //envia a agregar empresa
 app.get('/agregaEmpresa', (req, res) =>{
-    res.render('persona');
+    res.render('empresa');
 });
 
 app.get('/oferta', (req, res) =>{
