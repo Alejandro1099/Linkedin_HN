@@ -16,5 +16,11 @@ router.get('/addInfoSantiraria', (req, res)=>{
 })
 
 router.post('/addSalud', PersonaController.DataSalud);
+router.post('/dataProfesional', PersonaController.dataProfesional);
+router.post('/dataAcademica', PersonaController.dataAcademica);
+router.post('/condicionEmpleo', PersonaController.dataCondicion)
+router.post('/dataLegal', PersonaController.dataLegal);
+router.post('/dataFamilia', PersonaController.Datafam)
+
 
 export default router;

@@ -1,9 +1,9 @@
 import { createConnection } from 'mysql2';
 
 const connection = createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
+    host: 'database-proyecto.ceqwzgpptpvl.us-east-1.rds.amazonaws.com',
+    user: 'admin',
+    password: 'admin_2024',
     port: 3306,
     database: 'reclutamiento'
 });

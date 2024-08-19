@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condicion de empleo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <%- include("partials/_header") %> <!-- include(carpeta/nombreArchivo) -->
+    <!-- form -->
+    <div class="container">
+        <h2 class="h1 mt-3 text-center">CONDICIONES DE EMPLEO</h2>
+        <form action="/condicionEmpleo" method="post">
+            <div class="row mt-5">
+                <div class="col-md-8">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">DNI de la persona</label>
+                        <input type="text" class="form-control" name="dni" id="exampleFormControlInput1"
+                            placeholder="DNI" maxlength="13" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Cargo a obtener</label>
+                        <select name="cargo" id="tipo_sangre">
+                            <option value="" selected disabled hidden>Seleccione</option>
+                            <option value=""></option>
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Tipo de contrato</label>
+                        <select name="tipo_contrato" id="tipo_sangre">
+                            <option value="" selected disabled hidden>Seleccione</option>
+                            <option value="Full-time on site">Full time en oficina</option>
+                            <option value="Part-time on site">Part time en oficina</option>
+                            <option value="Full-time remoto">Full time remoto</option>
+                            <option value="Part-time remoto">Part time remoto</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Salario deseado</label>
+                        <input type="text" class="form-control" name="salario" id="exampleFormControlInput1"
+                            placeholder="DNI" pattern="\d*" maxlength="6" required>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                Guardar datos
+            </button>
+        </form>
+    </div>
+    <!-- End form -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</html>

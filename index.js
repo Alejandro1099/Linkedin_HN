@@ -2,6 +2,7 @@ import express, { urlencoded } from  'express';
 import path from 'path';
 import myConnection from 'express-myconnection';
 import { fileURLToPath } from 'url';
+import http from 'http';
 
 //__filename y __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -35,6 +36,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/home', (req, res) =>{
     res.render('inicio');
 });
+
+//envia a agregar empresa
+app.get('/persona', (req, res) =>{
+    res.render('persona');
+});
+
 
 app.get("/", (req, res) => {
     res.send("servidor de Linkedin HN escuchando Buen dia");

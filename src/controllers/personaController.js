@@ -61,7 +61,7 @@ PersonaController.dataAcademica = (req, res) =>{
         if(err){
             return res.status(500).send('Error al guardar los datos');
         }
-        res.redirect('');//agregar a donde ira despues de guardar
+        res.redirect('datosAcademicos');//agregar a donde ira despues de guardar
     });
 };
 
