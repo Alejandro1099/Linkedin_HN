@@ -15,6 +15,7 @@
     <%- include("partials/_header") %> <!-- include(carpeta/nombreArchivo) -->
         <!-- form -->
         <div class="container">
+            <h1 class="h1 mt-3 text-center">FORMULARIO DE REGISTRO DE PERSONAS</h1>
             <form action="/add" method="post">
                 <div class="row mt-3">
                     <div class="col-md-8">
@@ -28,14 +29,50 @@
                             <input type="text" class="form-control" name="sNombre" id="exampleFormControlInput2"
                                 placeholder="Segundo Nombre">
                         </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Primer Apellido</label>
+                            <input type="text" class="form-control" name="pApellido" id="exampleFormControlInput2"
+                                placeholder="Primer apellido">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Primer Apellido</label>
+                            <input type="text" class="form-control" name="sApellido" id="exampleFormControlInput2"
+                                placeholder="Segundo apellido">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" name="fecha" id="exampleFormControlInput2"
+                                placeholder="Fecha de nacimiento" max="2006-12-31">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Direccion de residencia</label>
+                            <input type="text" class="form-control" name="direccion" id="exampleFormControlInput2"
+                                placeholder="Direccion">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" name="correo" id="exampleFormControlInput2"
+                                placeholder="Correo">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Genero</label>
+                            <select name="genero" id="tipo_sangre">
+                                <option value="" selected disabled hidden>Seleccione</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary mb-3">
                     Guardar datos
                 </button>
             </form>
         </div>
         <!-- End form -->
+
+        <%- include("partials/footer") %> <!-- include(carpeta/nombreArchivo) -->
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
