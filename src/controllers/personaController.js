@@ -17,13 +17,13 @@ PersonaController.list = (req, res) =>{
 
 //codigo para guardar datos de la persona
 PersonaController.save = (req, res) =>{
-    const {pNombre, sNombre, pApellido, sApellido, fecha, direccion, correo, genero} = req.body;
-    const sql = 'INSERT INTO persona (Pnombre, Snombre, Papellido, Sapellido, fec_nac, direccion, correo, genero) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-    connection.query(sql, [pNombre, sNombre, pApellido, sApellido, fecha, direccion, correo, genero], (err, result)=>{
+    const {dni, pNombre, sNombre, pApellido, sApellido, fecha, direccion, correo, genero} = req.body;
+    const sql = 'INSERT INTO persona (DNI, Pnombre, Snombre, Papellido, Sapellido, fec_nac, direccion, correo, genero) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
+    connection.query(sql, [dni, pNombre, sNombre, pApellido, sApellido, fecha, direccion, correo, genero], (err, result)=>{
         if(err){
             return res.status(500).send('Error al guardar datos');
         }
-        res.redirect('/addInfoSantiraria');//('ruta donde queremos que redireccione')
+        res.render('datosProfesionales');//('ruta donde queremos que redireccione')
     });
 };
 
@@ -36,19 +36,19 @@ PersonaController.dataLaboral = (req, res) =>{
         if(err){
             return res.status(500).send('Error al guardar datos');
         }
-        res.redirect('');//agregar la ruta donde ira despues de guardar
+        res.render('');//agregar la ruta donde ira despues de guardar
     });
 };
 
 //codigo para guardar la informacion profesional
 PersonaController.dataProfesional = (req, res) =>{
     const {dni, conocimientos, idiomas} = req.body;
-    const sql = 'INSERT INTO info_profesional (DNI, conocimiento_laboral, idioma) VALUES (?, ?, ?)';
+    const sql = 'INSERT INTO info_profesional (DNI, conocimiento_laboral, idiomas) VALUES (?, ?, ?)';
     connection.query(sql, [dni, conocimientos, idiomas], (err, result) =>{
         if(err){
             return res.status(500).send('Error al guardar datos');
         }
-        res.redirect('');//agregar la ruta donde ira despues de guardar
+        res.render('datosAcademicos');//agregar la ruta donde ira despues de guardar
     });
 };
 
@@ -56,25 +56,25 @@ PersonaController.dataProfesional = (req, res) =>{
 //codigo para guardar informacion academica
 PersonaController.dataAcademica = (req, res) =>{
     const {dni, nivelAcademico, carrera} = req.body;
-    const sql = 'INSERT INTO datos_academicos (DNI, nivel_acadmico, carrera) VALUES (?, ?, ?)';
+    const sql = 'INSERT INTO datos_academicos (DNI, nivel_academico, carrera) VALUES (?, ?, ?)';
     connection.query(sql, [dni, nivelAcademico, carrera], (err, result) =>{
         if(err){
             return res.status(500).send('Error al guardar los datos');
         }
-        res.redirect('datosAcademicos');//agregar a donde ira despues de guardar
+        res.render('datosCondicionEmpleo');//agregar a donde ira despues de guardar
     });
 };
 
 
 //codigo para guardar la informacion de condicion laboral
 PersonaController.dataCondicion = (req, res) =>{
-    const {dni, cargo, tipo_contrato, salario} = req.body;
-    const sql = 'INSERT INTO condiciones_empleo (DNI, cargoID, tipo_contrato, salario) VALUES (?, ?, ?, ?)';
-    connection.query(sql, [dni, cargo, tipo_contrato, salario], (err, result) =>{
+    const {dni, tipo_contrato, salario} = req.body;
+    const sql = 'INSERT INTO condiciones_empleo (DNI, tipo_contrato, salario) VALUES (?, ?, ?)';
+    connection.query(sql, [dni, tipo_contrato, salario], (err, result) =>{
         if(err){
             return res.status(500).send('Error al guardar los datos');
         }
-        res.redirect('');//agregar la ruta donde ira despues de guardar
+        res.render('datosLegales');//agregar la ruta donde ira despues de guardar
     });
 };
 
@@ -87,19 +87,35 @@ PersonaController.dataLegal = (req, res) =>{
         if(err){
             return res.status(500).send('Error al guardar los datos');
         }
-        res.redirect('');//agregar la ruta donde ira despues de guardar
+        res.render('datosFamilia');//agregar la ruta donde ira despues de guardar
     });
 };
 
 //Datos de familia
 PersonaController.Datafam = (req, res) => {
-    const {dni, parentesco} = req.body;
-    const sql = 'INSERT INTO familiares (DNI, parentesco) VALUES (?, ?)';
-    connection.query(sql, [dni, parentesco], (err, result) => {
-        if(err){
-            return res.status(500).send('Error al guardar datos');
+    const { dni, parentesco } = req.body;
+
+    // Consulta para verificar si el DNI existe en la tabla `persona`
+    const checkDNI = 'SELECT * FROM persona WHERE DNI = ?';
+    connection.query(checkDNI, [dni], (err, results) => {
+        if (err) {
+            return res.status(500).send('Error al consultar la base de datos');
         }
-        res.redirect()//falta agregar la ruta donde va a ir este controller
+
+        if (results.length === 0) {
+            // Si no hay un registro, redirigir a otra página
+            return res.render('hola');  // Aquí se coloca la ruta de la nueva página
+        } else {
+            // Si el DNI existe, proceder a insertar en la tabla `familiares`
+            const sql = 'INSERT INTO familiares (DNI, parentesco) VALUES (?, ?)';
+            connection.query(sql, [dni, parentesco], (err, result) => {
+                if (err) {
+                    return res.status(500).send('Error al guardar datos');
+                }
+                // Redirigir o renderizar una vista después de guardar
+                res.render('hola');  // Cambia 'hola' por la vista o ruta deseada
+            });
+        }
     });
 };
 
@@ -112,7 +128,7 @@ PersonaController.DataSalud = (req, res) =>{
         if(err){
             return res.status(500).send('Error al guardar los datos');
         }
-        res.redirect('/');
+        res.render('inicio');
     });
 };
 

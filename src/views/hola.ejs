@@ -11,7 +11,7 @@
 <body>
     <!-- DNI, PESO, ALTURA, TIPO_SANGRE, ALERGIAS, ENFERMEDADES_CRONICAS, MEDICAMENTOS-->
     <%- include("partials/_header") %> <!-- include(carpeta/nombreArchivo) -->
-        <h1>FORMULARIO DE DATOS SANITARIOS</h1>
+        <h2 class="h1 mt-3 text-center">FORMULARIO DE DATOS SANITARIOS</h1>
         <!-- form -->
         <div class="container">
             <form action="/addSalud" method="POST">
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary mb-3">
                     Guardar datos
                 </button>
             </form>

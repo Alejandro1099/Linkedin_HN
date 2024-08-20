@@ -1,5 +1,6 @@
 import { createConnection } from 'mysql2';
 
+//conexion con AWS
 /*const connection = createConnection({
     host: 'database-proyecto.ceqwzgpptpvl.us-east-1.rds.amazonaws.com',
     user: 'admin',
@@ -8,6 +9,7 @@ import { createConnection } from 'mysql2';
     database: 'linkedinhn'
 });*/
 
+//conexion local
 const connection = createConnection({
     host: 'localhost',
     user: 'root',

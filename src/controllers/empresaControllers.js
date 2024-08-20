@@ -4,9 +4,9 @@ const EmpresaController = {}; //objeto empresa
 
 //codigo para guardar datos de la empresa
 EmpresaController.save = (req, res) =>{
-    const {cif, nEmpresa, nDirector, tel, direccion, correo, img} = req.body;
-    const sql = 'INSERT INTO empresa (CIF, nombre_empresa, nombre_ceo, telefono, direccion, correo, logo) VALUES (?, ?, ?, ?, ?, ?, ?)';
-    connection.query(sql, [cif, nEmpresa, nDirector, direccion, tel, correo, img], (err, result)=>{
+    const {nEmpresa, nDirector, tel, direccion, correo, img, cif} = req.body;
+    const sql = 'INSERT INTO empresa (nombre_empresa, nombre_ceo, telefono, direccion, correo, logo, CIF) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    connection.query(sql, [nEmpresa, nDirector, tel, direccion, correo, img, cif], (err, result)=>{
         if(err){
             return res.status(500).send('Error al guardar datos');
         }
@@ -42,9 +42,9 @@ EmpresaController.tipoEmpleo = (req, res) => {
 
 //codigo para oferta_trabajo
 EmpresaController.ofertaTrabajo = (req, res) => {
-    const {empresaID, tipo_empleoID, deptoID, descripcion, req_academico, req_legales, sueldo, vacantes} = req.body;
-    const sql = 'INSERT INTO tipo_empleo (empresaID, tipo_empleoID, deptoID, descripcion, req_academico, req_legales, sueldo, vacantes) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
-    connection.query(sql, [empresaID, tipo_empleoID, deptoID, descripcion, req_academico, req_legales, sueldo, vacantes], (err, result)=>{
+    const {empresaID, descripcion, req_academico, req_legales, sueldo, vacantes} = req.body;
+    const sql = 'INSERT INTO oferta_trabajo (empresaID, descripcion, req_academico, req_legales, sueldo, puestos_vacantes) VALUES (?, ?, ?, ?, ?, ?)';
+    connection.query(sql, [empresaID, descripcion, req_academico, req_legales, sueldo, vacantes], (err, result)=>{
         if(err){
             return res.status(500).send('Error al guardar datos');
         }
