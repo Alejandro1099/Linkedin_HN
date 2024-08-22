@@ -8,7 +8,7 @@ const connection = createConnection({
     password: 'admin_2024',
     port: 3306,
     //database: 'linkedinhn',
-    database: 'agencia-empleos'
+    database: 'proyecto'
 });
 
 //conexion local
