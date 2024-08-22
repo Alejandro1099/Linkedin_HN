@@ -5,7 +5,7 @@ const connection = createConnection({
     host: 'database-proyecto.ceqwzgpptpvl.us-east-1.rds.amazonaws.com',
     //host: 'agencia-empleos.cdvfxxw47zcz.us-east-1.rds.amazonaws.com',
     user: 'admin',
-    password: 'admin_123',
+    password: 'admin_2024',
     port: 3306,
     //database: 'linkedinhn',
     database: 'agencia-empleos'
